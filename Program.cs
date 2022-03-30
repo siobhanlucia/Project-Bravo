@@ -83,14 +83,12 @@ namespace Project_Bravo
                 }
             } while (Option != 0);
         }
-
-        static string AddName() //function
+        static void AddName() //function
         {
-            string name;
             Console.WriteLine("Please enter the employee's first name: ");
-            string firstName = Console.ReadLine();
+            string firstName = Console.ReadLine(); //user input employee first name
             Console.WriteLine("Please enter the employee's last name: ");
-            string lastName = Console.ReadLine();
+            string lastName = Console.ReadLine(); //user input employee surname
             Console.WriteLine("Please enter employee's email id: ");
             string emailid = Console.ReadLine(); //added email 
             Console.WriteLine("Please enter employee's mobile phone number: ");
@@ -98,17 +96,14 @@ namespace Project_Bravo
             Console.WriteLine("Please enter employee's adress: ");
             string address = Console.ReadLine(); //added address
             employees.Add(firstName + " " + lastName + ", " + emailid + ", " + mobilephone + ", " + address); //adding first records to list function
-            return name = firstName + " " + lastName + ", " + emailid + ", " + mobilephone + ", " + address;
-
-
             Console.ReadKey();
         }
         static void InsertName()
         {
             Console.WriteLine("Please enter the first name: ");
-            string firstName = Console.ReadLine();
+            string firstName = Console.ReadLine(); //user input employee first name
             Console.WriteLine("Please enter the last name: ");
-            string lastName = Console.ReadLine();
+            string lastName = Console.ReadLine(); //user input employee surname
             Console.WriteLine("Please enter employee's email id: ");
             string emailid = Console.ReadLine();  //added email 
             Console.WriteLine("Please enter employee's mobile phone number: ");
@@ -130,33 +125,31 @@ namespace Project_Bravo
         static void UpdateName()
         {
             Console.WriteLine("Please enter the number of the existing employee name you would like to replace: (with the first entry as 0, second = 1,etc)");
-            foreach (string str in employees)
+            foreach (string str in employees) //listing employess for ease of user identifying index number of the empolyee they wish to update
             {
                 Console.WriteLine(str);
             }
-            int loc = Convert.ToInt32(Console.ReadLine());
+            int loc = Convert.ToInt32(Console.ReadLine()); //user input index number of employee that is being updated
             Console.WriteLine("Existing employee: " + employees[loc]);
             Console.WriteLine("Please enter the name you wish to replace the existing employee: ");
             Console.WriteLine("Please enter first name: ");
-            string firstName = Console.ReadLine();
+            string firstName = Console.ReadLine(); //user input employee first name
             Console.WriteLine("Please enter last name: ");
-            string lastName = Console.ReadLine();
+            string lastName = Console.ReadLine(); //user input employee surnam
             Console.WriteLine("Please enter employee's email id: ");
-            string emailid = Console.ReadLine();
+            string emailid = Console.ReadLine(); //user input email
             Console.WriteLine("Please enter employee's mobile phone number: ");
-            string mobilephone = Console.ReadLine();
+            string mobilephone = Console.ReadLine(); //user input phone number
             Console.WriteLine("Please enter employee's adress: ");
-            string address = Console.ReadLine();
-            employees[loc] = (firstName + ", " + lastName + ", " + emailid + ", " + mobilephone + ", " + address);
+            string address = Console.ReadLine(); //user input address
+            employees[loc] = (firstName + ", " + lastName + ", " + emailid + ", " + mobilephone + ", " + address); //updating info into stated index
             Console.WriteLine("The updated information for " + loc + " is " + firstName + " " + lastName + ", " + emailid + ", " + mobilephone + ", " + address);
             Console.ReadKey();
-
         }
-
         static void DeleteName() //function
         {
             Console.WriteLine("Please enter the number of the existing employee name you would like to delete: (with the first entry as 0, second = 1,etc)");
-            foreach (string str in employees)
+            foreach (string str in employees) //listing employess for ease of user identifying index number of the empolyee they wish to delete
             {
                 Console.WriteLine(str);
             }
@@ -164,7 +157,7 @@ namespace Project_Bravo
             Console.WriteLine("Existing employee: " + employees[loc]);
             employees.RemoveAt(loc); //removing chosen employee
             Console.WriteLine("The updated employees records are: ");
-            foreach (string str in employees)
+            foreach (string str in employees) //listed updated list
             {
                 Console.WriteLine(str); //new list with record deleted
             }
@@ -178,7 +171,6 @@ namespace Project_Bravo
 
             for (int iCount = 0; iCount < employees.Count; iCount++) //iCount int variable
             {
-
                 if (employees[iCount].Contains(SearchRecord)) //Contains the first name that user has input
                 {
                     employeesData = employees[iCount]; //accessing employee full name from user input
@@ -186,20 +178,17 @@ namespace Project_Bravo
                 }
             }
             Console.ReadKey();
-
         }
         static void DisplayData() //function
         {
             Console.WriteLine(string.Join(", ", employees)); //string.Join() method concatenates the list elements with a seperator in between
             Console.ReadKey();
-
         }
         static void SearchLoc() //function
         {
             Console.WriteLine("Please enter the index number of the existing employee name you would like to confirm is in the system:");
             int loc = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Existing employee: " + employees[loc]);
-
             Console.ReadKey();
         }
         static void FileWrite() //function
@@ -215,11 +204,9 @@ namespace Project_Bravo
             }
             Console.ReadKey();
             
-            
             // Read  file  
            string readfile = File.ReadAllText(fullPath);
             Console.WriteLine(readfile);
-
             Console.ReadKey();
         }
 
